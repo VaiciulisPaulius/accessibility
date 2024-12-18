@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="container-fluid">
+        <nav>
+            <ul>
+                <li><strong>Website accessibility testing</strong></li>
+            </ul>
+            <ul>
+                <li><a href="/">TAB example</a></li>
+                <li><a href="/AutomaticNotification/">Notification automatic send example</a></li>
+                <li><a href="/ElementFocus/">Nonstandard element focus example</a></li>
+                <li><a href="/ElementInvisibility/">Element invisibility example</a></li>
+                <li><a href="/ElementInvisibilityBadExample/">Element invisibility bad example</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <h1>Nonstandard element focus example</h1>
+        <h2>-- Bad example --</h2>
+
+        <form>
+            <h3 id="question-0" tabindex="-1">When did Žalgirio mušis started?</h3>
+            <div>
+                <input type="radio" id="answer-1" name="answer" value="a" checked>
+                <label for="answer-1">a) 1409 m.</label>
+            </div>
+            <div>
+                <input type="radio" id="answer-2" name="answer" value="b">
+                <label for="answer-2">b) 1410 m.</label>
+            </div>
+            
+            <button style="margin-top: 1rem;" type="button">Tęsti</button>
+        </form>
+
+        <form>
+            <h3 id="question-1" tabindex="-1">When did Saulės mušis started?</h3>
+            <div>
+                <input type="radio" id="answer-1" name="answer" value="a" checked>
+                <label for="answer-1">a) 1236m.</label>
+            </div>
+            <div>
+                <input type="radio" id="answer-2" name="answer" value="b">
+                <label for="answer-2">b) 1287m.</label>
+            </div>
+            
+            <button style="margin-top: 1rem;" type="button">Tęsti</button>
+        </form>
+
+        <h2>-- Good example --</h2>
+
+        <form>
+            <h3 id="question-2" tabindex="-1">When did Žalgirio mušis started?</h3>
+            <div>
+                <input type="radio" id="answer-1" name="answer" value="a" checked>
+                <label for="answer-1">a) year 1409</label>
+            </div>
+            <div>
+                <input type="radio" id="answer-2" name="answer" value="b">
+                <label for="answer-2">b) year 1410</label>
+            </div>
+            
+            <button style="margin-top: 1rem;"  type="button" onclick="nextQuestion()">Tęsti</button>
+        </form>
+
+        <form>
+            <h3 id="question-3" tabindex="-1">When did Saulės mušis started?</h3>
+            <div>
+                <input type="radio" id="answer-1" name="answer" value="a" checked>
+                <label for="answer-1">a) year 1236</label>
+            </div>
+            <div>
+                <input type="radio" id="answer-2" name="answer" value="b">
+                <label for="answer-2">b) year 1287</label>
+            </div>
+            
+            <button style="margin-top: 1rem;" type="button">Tęsti</button>
+        </form>
+
+    </main>
+    <style>
+        .hidden {
+            position: absolute;
+            left: -10000px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        function nextQuestion() {
+            document.getElementById('question-3').focus();
+        }
+    </script>
+</body>
+</html>

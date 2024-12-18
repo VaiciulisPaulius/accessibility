@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="container-fluid">
+        <nav>
+            <ul>
+                <li><strong>Website accessibility testing</strong></li>
+            </ul>
+            <ul>
+                <li><a href="/">TAB example</a></li>
+                <li><a href="/AutomaticNotification/">Notification automatic send example</a></li>
+                <li><a href="/ElementFocus/">Nonstandard element focus example</a></li>
+                <li><a href="/ElementInvisibility/">Element invisibility example</a></li>
+                <li><a href="/ElementInvisibilityBadExample/">Element invisibility bad example</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container-fluid">
+        <h1>Notification automatic send example</h1>
+
+        <h2>-- Bad example --</h2>
+        
+        <div id="status-0" role="status" aria-live="polite"></div>
+        <button style="margin-bottom: 3rem;">Send message</button>
+
+        <h2>-- Good example --</h2>
+
+        <div id="status-1" role="status" aria-live="polite"></div>
+        <button style="margin-bottom: 3rem;" onclick="sendMessage()">Send message</button>
+
+        <h2>-- With invisibility Example --</h2>
+
+        <div id="status" class="hidden" role="status" aria-live="polite"></div>
+        <button onclick="startProcess()">Send Message</button>
+    
+        <span id="loading-icon" class="loading icon">⏳</span>
+        <span id="completion-icon" class="icon">✅</span>
+
+    </main>
+    <style>
+        .hidden {
+            position: absolute;
+            left: -10000px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .icon {
+            display: none;
+            margin-left: 10px;
+            font-size: 1.5rem;
+        }
+        .loading {
+            display: none;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        function sendMessage() {
+            document.getElementById('status-1').innerHTML = 'Message <b>sent</b>.';
+        }
+        function startProcess() {
+            const status = document.getElementById('status');
+            const loadingIcon = document.getElementById('loading-icon');
+            const completionIcon = document.getElementById('completion-icon');
+
+            loadingIcon.style.display = 'inline-block';
+            completionIcon.style.display = 'none';
+            status.innerHTML = 'Loading...';
+
+            setTimeout(() => {
+                loadingIcon.style.display = 'none';
+                completionIcon.style.display = 'inline-block';
+                status.innerHTML = 'Message sent';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

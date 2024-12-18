@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="container-fluid">
+        <div class="skip-links">
+            <a href="#main-content" style="display: none">Skip to main content</a>
+            <a href="#section-contact" style="display: none">Skip to contact us</a>
+            <a href="#data-overview" style="display: none">Skip to data overview</a>
+            <a href="#footer" style="display: none">Skip to footer</a>
+        </div>
+        <nav>
+            <ul>
+                <li><strong>Website accessibility testing</strong></li>
+            </ul>
+            <ul>
+                <li><a href="/">TAB example</a></li>
+                <li><a href="/AutomaticNotification/">Notification automatic send example</a></li>
+                <li><a href="/ElementFocus/">Nonstandard element focus example</a></li>
+                <li><a href="/ElementInvisibility/">Element invisibility example</a></li>
+                <li><a href="/ElementInvisibilityBadExample/">Element invisibility bad example</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container" id="main-content">
+        <header>
+            <h1>Welcome to Our Accessible Content Page</h1>
+            <p>Ensuring accessibility for all users is our top priority. This page demonstrates a variety of accessible content elements.</p>
+        </header>
+    
+        <section aria-labelledby="section-about">
+            <h2 id="section-about">About Us</h2>
+            <p>
+                We are dedicated to creating inclusive web experiences. Accessibility benefits everyone, including people with disabilities, older users, and those navigating through challenging environments.
+            </p>
+        </section>
+    
+        <section aria-labelledby="section-services">
+            <h2 id="section-services">Our Services</h2>
+            <ul>
+                <li>Web development with accessibility in mind</li>
+                <li>Accessibility audits and testing</li>
+                <li>Consulting on inclusive design practices</li>
+            </ul>
+        </section>
+    
+        <section aria-labelledby="section-contact">
+            <h2 id="section-contact">Contact Us</h2>
+            <form aria-labelledby="form-heading" action="#" method="post">
+                <h3 id="form-heading">Get in Touch</h3>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" aria-required="true">
+    
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" aria-required="true">
+    
+                <label for="message">Message</label>
+                <textarea id="message" name="message" aria-required="true"></textarea>
+    
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    
+        <section aria-labelledby="section-data" id="data-overview">
+            <h2 id="section-data">Data Overview</h2>
+            <table aria-labelledby="data-description">
+                <caption id="data-description">Summary of User Statistics</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Year</th>
+                        <th scope="col">Users</th>
+                        <th scope="col">Growth</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2022</td>
+                        <td>10,000</td>
+                        <td>25%</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>12,500</td>
+                        <td>20%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    
+        <footer id="footer">
+            <p>&copy; 2024 Accessible Web Design Co. All rights reserved.</p>
+            <div class="skip-links">
+                <a href="#main-content" style="visibility: hidden;">Skip to main content</a>
+                <a href="#section-contact" style="visibility: hidden;">Skip to contact us</a>
+                <a href="#data-overview" style="visibility: hidden;">Skip to data overview</a>
+                <a href="#footer" style="visibility: hidden;">Skip to footer</a>
+            </div>
+        </footer>
+    </main>
+    
+    <style>
+        .hidden {
+            position: absolute;
+            left: -10000px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+    </style>
+</body>
+</html>

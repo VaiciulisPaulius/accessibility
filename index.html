@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="container-fluid">
+        <nav>
+            <ul>
+                <li><strong>Website accessibility testing</strong></li>
+            </ul>
+            <ul>
+                <li><a href="/">TAB example</a></li>
+                <li><a href="/AutomaticNotification/">Notification automatic send example</a></li>
+                <li><a href="/ElementFocus/">Nonstandard element focus example</a></li>
+                <li><a href="/ElementInvisibility/">Element invisibility example</a></li>
+                <li><a href="/ElementInvisibilityBadExample/">Element invisibility bad example</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container-fluid">
+        <h1>TAB example</h1>
+        <h2>-- Bad example --</h2>
+        <form>
+            <table>
+                <caption>Married couple search</caption>
+                <p class="hidden">Data about husbands and wives: first column contains husband data, second column contains wife data.</p>
+                
+                <tr>
+                    <th scope="col">Search criteria</th>
+                    <th scope="col">Husband</th>
+                    <th scope="col">Wife</th>
+                </tr>
+                
+                <tr>
+                    <th scope="row">First name:</th>
+                    <td><input type="text" title="Husband first name" /></td>
+                    <td><input type="text" title="Wife first name" /></td>
+                </tr>
+                
+                <tr>
+                    <th scope="row">Last name:</th>
+                    <td><input type="text" title="Husband last name" /></td>
+                    <td><input type="text" title="Wife last name" /></td>
+                </tr>
+            </table>
+            
+            <input type="submit" value="Ieškoti" />
+        </form>
+
+        <h2>-- Good example --</h2>
+        <form>
+            <table>
+                <caption>Married couple search</caption>
+                <p class="hidden">Data about husbands and wives: first column contains husband data, second column contains wife data.</p>
+                
+                <tr>
+                    <th scope="col">Search criteria</th>
+                    <th scope="col">Husband</th>
+                    <th scope="col">Wife</th>
+                </tr>
+                
+                <tr>
+                    <th scope="row">First name:</th>
+                    <td><input type="text" title="Husband first name" tabindex="1"/></td>
+                    <td><input type="text" title="Wife first name" tabindex="2"/></td>
+                </tr>
+                
+                <tr>
+                    <th scope="row">Last name:</th>
+                    <td><input type="text" title="Husband last name" tabindex="1"/></td>
+                    <td><input type="text" title="Wife last name" tabindex="2"/></td>
+                </tr>
+            </table>
+            
+            <input type="submit" value="Ieškoti" />
+        </form>
+    </main>
+    <style>
+        .hidden {
+            position: absolute;
+            left: -10000px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+    </style>
+</body>
+</html>
